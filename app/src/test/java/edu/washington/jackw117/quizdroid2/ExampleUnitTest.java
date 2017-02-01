@@ -1,4 +1,4 @@
-package edu.washington.jackw117.quizdroid;
+package edu.washington.jackw117.quizdroid2;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package edu.washington.jackw117.quizdroid;
+package edu.washington.jackw117.quizdroid2;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
 
     ListView lv;
+    public static final String MESSAGE = "message";
+    public static final String TAG = "tag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +27,22 @@ public class MainActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //ListView listView = (ListView) view;
                 String itemValue = (String) lv.getItemAtPosition(position);
                 switch (position)
                 {
-                    case 0:  Intent newActivity0 = new Intent(MainActivity.this, Math.class);
+                    case 0:  Intent newActivity0 = new Intent(MainActivity.this, Quiz.class);
+                        newActivity0.putExtra(MESSAGE, getResources().getString(R.string.mintent));
+                        newActivity0.putExtra(TAG, "mq");
                         startActivity(newActivity0);
                         break;
-                    case 1:  Intent newActivity1 = new Intent(MainActivity.this, Physics.class);
+                    case 1:  Intent newActivity1 = new Intent(MainActivity.this, Quiz.class);
+                        newActivity1.putExtra(MESSAGE, getResources().getString(R.string.pintent));
+                        newActivity1.putExtra(TAG, "pq");
                         startActivity(newActivity1);
                         break;
-                    case 2:  Intent newActivity2 = new Intent(MainActivity.this, MarvelSuperHeroes.class);
+                    case 2:  Intent newActivity2 = new Intent(MainActivity.this, Quiz.class);
+                        newActivity2.putExtra(MESSAGE, getResources().getString(R.string.mshintent));
+                        newActivity2.putExtra(TAG, "mshq");
                         startActivity(newActivity2);
                         break;
                 }
