@@ -1,4 +1,4 @@
-package edu.washington.jackw117.quizdroid2;
+package edu.washington.jackw117.quizdroid3;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("edu.washington.jackw117.quizdroid2", appContext.getPackageName());
+        assertEquals("edu.washington.jackw117.quizdroid3", appContext.getPackageName());
     }
 }

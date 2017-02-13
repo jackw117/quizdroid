@@ -1,11 +1,10 @@
-package edu.washington.jackw117.quizdroid2;
-
+package edu.washington.jackw117.quizdroid3;
 
 import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,10 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class Question extends Fragment {
-
     public static final String INPUT = "input";
     public static final String SCORE = "score";
     public static final String CURRENT = "current";
+    private QuizApp quiz = QuizApp.getInstance();
 
     public Question() {
         // Required empty public constructor
@@ -33,18 +32,13 @@ public class Question extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final String question = getArguments().getString(Overview.QUESTION);
-        final String a1 = getArguments().getString(Overview.ANSWER_1);
-        final String a2 = getArguments().getString(Overview.ANSWER_2);
-        final String a3 = getArguments().getString(Overview.ANSWER_3);
-        final String a4 = getArguments().getString(Overview.ANSWER_4);
-        final String correct = getArguments().getString(Overview.CORRECT);
         final int score = getArguments().getInt(SCORE);
-        int current = getArguments().getInt(CURRENT);
-        final String qtotal = getArguments().getString(Overview.QTOTAL);
-        final String tag = getArguments().getString(MainActivity.TAG);
+        final int current = getArguments().getInt(CURRENT);
+        final int index = getArguments().getInt(MainActivity.MESSAGE);
 
         final View rootView = inflater.inflate(R.layout.fragment_question, container, false);
+        Topic currentTopic = quiz.getTopics().get(index);
+        final Quiz currentQuiz = currentTopic.getQuizzes().get(current);
 
         TextView tvQuestion = (TextView) rootView.findViewById(R.id.question);
         RadioButton r1 = (RadioButton) rootView.findViewById(R.id.answer1);
@@ -54,17 +48,13 @@ public class Question extends Fragment {
         final RadioGroup rg = (RadioGroup) rootView.findViewById(R.id.radioGroup);
         final Button submit = (Button) rootView.findViewById(R.id.submit);
 
-        if (current == 0) {
-            current++;
-        }
+        tvQuestion.setText(currentQuiz.getQuestion());
+        r1.setText(currentQuiz.getAnswers().get(0));
+        r2.setText(currentQuiz.getAnswers().get(1));
+        r3.setText(currentQuiz.getAnswers().get(2));
+        r4.setText(currentQuiz.getAnswers().get(3));
 
-        final int newCurrent = current;
 
-        tvQuestion.setText(question);
-        r1.setText(a1);
-        r2.setText(a2);
-        r3.setText(a3);
-        r4.setText(a4);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,15 +65,13 @@ public class Question extends Fragment {
                     Fragment frg = new Answer();
                     Bundle b = new Bundle();
                     int newScore = score;
-                    if (checkedRadioButton.getText().equals(correct)) {
+                    if (checkedRadioButton.getText().equals(currentQuiz.getAnswers().get(currentQuiz.getCorrect() - 1))) {
                         newScore++;
                     }
                     b.putInt(SCORE, newScore);
                     b.putString(INPUT, checkedRadioButton.getText().toString());
-                    b.putInt(CURRENT, newCurrent);
-                    b.putString(Overview.QTOTAL, qtotal);
-                    b.putString(Overview.CORRECT, correct);
-                    b.putString(MainActivity.TAG, tag);
+                    b.putInt(CURRENT, current);
+                    b.putInt(MainActivity.MESSAGE, index);
                     frg.setArguments(b);
                     tx.replace(R.id.fragment, frg);
                     tx.commit();

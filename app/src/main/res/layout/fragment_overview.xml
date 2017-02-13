@@ -2,10 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.washington.jackw117.quizdroid2.Overview">
-
-    <!-- TODO: Update blank fragment layout -->
-
+    tools:context="edu.washington.jackw117.quizdroid3.Overview">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -46,6 +43,19 @@
             android:layout_marginBottom="89dp"
             android:id="@+id/begin" />
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_gravity="center"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginRight="37dp"
+            android:layout_marginEnd="37dp"
+            android:layout_above="@+id/desc"
+            android:layout_toLeftOf="@+id/begin"
+            android:layout_toStartOf="@+id/begin" />
+
 
     </RelativeLayout>
+
 </FrameLayout>

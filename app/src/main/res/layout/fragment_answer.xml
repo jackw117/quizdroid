@@ -2,10 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.washington.jackw117.quizdroid2.Answer">
-
-    <!-- TODO: Update blank fragment layout -->
-
+    tools:context="edu.washington.jackw117.quizdroid3.Answer">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,4 +40,5 @@
             android:layout_marginBottom="64dp"
             android:id="@+id/next" />
     </RelativeLayout>
+
 </FrameLayout>

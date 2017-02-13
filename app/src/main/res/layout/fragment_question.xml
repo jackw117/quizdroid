@@ -2,10 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.washington.jackw117.quizdroid2.Question">
-
-    <!-- TODO: Update blank fragment layout -->
-
+    tools:context="edu.washington.jackw117.quizdroid3.Question">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -55,4 +52,5 @@
             android:id="@+id/submit"
             android:visibility="gone"/>
     </RelativeLayout>
+
 </FrameLayout>

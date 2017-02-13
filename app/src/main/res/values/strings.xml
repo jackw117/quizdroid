@@ -1,64 +1,10 @@
 <resources>
-    <string name="app_name">QuizDroid2</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">QuizDroid3</string>
 
     <string name="pintent">physics</string>
     <string name="mintent">math</string>
     <string name="mshintent">msh</string>
 
-    <string name="mtitle">Math Overview</string>
-    <string name="mtotal">2</string>
-    <string name="mdesc">This topic allows you to answer math questions ranging from simple arithmetic, algebra, and calculus.</string>
-
-    <string name="mq1">1 + 1 = ?</string>
-    <string name="mq1a1">1</string>
-    <string name="mq1a2">2</string>
-    <string name="mq1a3">3</string>
-    <string name="mq1a4">4</string>
-    <string name="mq1correct">1</string>
-
-    <string name="mq2">0 / 0 = ?</string>
-    <string name="mq2a1">1</string>
-    <string name="mq2a2">2</string>
-    <string name="mq2a3">what</string>
-    <string name="mq2a4">the end of the universe</string>
-    <string name="mq2correct">what</string>
-
-    <string name="ptitle">Physics Overview</string>
-    <string name="ptotal">2</string>
-    <string name="pdesc">Answer physics questions related to kinematics, electromagnetism, and waves.</string>
-
-    <string name="pq1">What floats in water?</string>
-    <string name="pq1a1">bread</string>
-    <string name="pq1a2">apples</string>
-    <string name="pq1a3">very small rocks</string>
-    <string name="pq1a4">a duck</string>
-    <string name="pq1correct">a duck</string>
-
-    <string name="pq2">What is the average airspeed velocity of an unladen swallow?</string>
-    <string name="pq2a1">"I don't know that"</string>
-    <string name="pq2a2">What do you mean?</string>
-    <string name="pq2a3">African or European?</string>
-    <string name="pq2a4">blue</string>
-    <string name="pq2correct">blue</string>
-
-    <string name="mshtitle">Marvel Super Heroes</string>
-    <string name="mshtotal">2</string>
-    <string name="mshdesc">Answer questions about Marvel super heroes.</string>
-
-    <string name="mshq1">Is Batman Marvel?</string>
-    <string name="mshq1a1">yes</string>
-    <string name="mshq1a2">somewhat</string>
-    <string name="mshq1a3">"I don't know"</string>
-    <string name="mshq1a4">no</string>
-    <string name="mshq1correct">yes</string>
-
-    <string name="mshq2">Is Luke Skywalker Marvel?</string>
-    <string name="mshq2a1">who is Luke</string>
-    <string name="mshq2a2">yes</string>
-    <string name="mshq2a3">I think so</string>
-    <string name="mshq2a4">definitely</string>
-    <string name="mshq2correct">yes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
