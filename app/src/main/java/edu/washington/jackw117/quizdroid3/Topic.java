@@ -11,13 +11,11 @@ import java.util.StringTokenizer;
 public class Topic {
     private String title;
     private String shortDescription;
-    private String longDescription;
     private List<Quiz> quizzes;
 
-    public Topic(String title, String shortDesc, String longDesc, ArrayList<Quiz> quizzes) {
+    public Topic(String title, String shortDesc, ArrayList<Quiz> quizzes) {
         this.title = title;
         this.shortDescription = shortDesc;
-        this.longDescription = longDesc;
         this.quizzes = quizzes;
     }
 
@@ -27,10 +25,6 @@ public class Topic {
 
     public String getShortDescription() {
         return shortDescription;
-    }
-
-    public String getLongDescription() {
-        return longDescription;
     }
 
     public List<Quiz> getQuizzes() {
@@ -43,10 +37,6 @@ public class Topic {
 
     public void setShortDescription(String input) {
         shortDescription = input;
-    }
-
-    public void setLongDescription(String input) {
-        longDescription = input;
     }
 
     public void setQuizzes(List<Quiz> input) {

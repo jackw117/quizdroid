@@ -2,6 +2,7 @@ package edu.washington.jackw117.quizdroid3;
 
 import android.util.Log;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,9 @@ public class QuizApp extends android.app.Application {
         return repo.query();
     }
 
-    private void getQuiz() {
-        repo.createQuiz();
+    public void getQuiz() {
+        File file = new File("/storage/emulated/0/Android/data/edu.washington.jackw117.quizdroid3/files/questions.json");
+        repo.createQuiz(file);
+        List<Topic> listT = repo.query();
     }
 }

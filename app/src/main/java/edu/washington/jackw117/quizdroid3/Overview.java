@@ -39,7 +39,7 @@ public class Overview extends Fragment {
         String newTotal = "Questions: " + currentTopic.getQuizzes().size();
         tv2.setText(newTotal);
         TextView tv3 = (TextView) rootView.findViewById(R.id.desc);
-        tv3.setText(currentTopic.getLongDescription());
+        //tv3.setText(currentTopic.getLongDescription());
 
         final Button begin = (Button) rootView.findViewById(R.id.begin);
         begin.setOnClickListener(new View.OnClickListener() {

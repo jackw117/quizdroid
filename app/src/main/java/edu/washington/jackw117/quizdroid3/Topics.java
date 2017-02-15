@@ -1,5 +1,12 @@
 package edu.washington.jackw117.quizdroid3;
 
+import android.util.JsonReader;
+import android.util.JsonToken;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,35 +16,6 @@ import java.util.List;
  */
 
 public class Topics implements TopicRepository<Topic> {
-    private String[] topics = new String[] {
-            "Math", "Physics", "Marvel Super Heroes"
-    };
-    private String[] shortDesc = new String[] {
-            "Quiz about math", "Quiz about physics", "Quiz about super heroes"
-    };
-    private String[] longDesc = new String[] {
-            "This topic allows you to answer math questions ranging from simple arithmetic, algebra, and calculus.",
-            "Answer physics questions related to kinematics, electromagnetism, and waves.",
-            "Answer questions about Marvel super heroes."
-    };
-    private String[][] questions = new String[][] {
-            new String[] {"1 + 1 = ?", "0 / 0 = ?"},
-            new String[] {"What floats in water?", "What is the average airspeed velocity of an unladen swallow?"},
-            new String[] {"Is Batman Marvel?", "Is Luke Skywalker Marvel?"}
-    };
-    private String[][] answers = new String[][] {
-            new String[] {"1", "2", "3", "4",
-                "1", "2", "what", "the end of the universe"},
-            new String[] {"bread", "apples", "very small rocks", "a duck",
-                "I don't know that", "What do you mean?", "African or European?", "blue"},
-            new String[] {"yes", "somewhat", "I don't know", "no",
-                "who is Luke", "yes", "I think so", "definitely"}
-    };
-    private int[][] correct = new int[][] {
-            new int[] {1, 3},
-            new int[] {4, 4},
-            new int[] {1, 2}
-    };
 
     private List<Topic> topicList;
 
@@ -52,17 +30,45 @@ public class Topics implements TopicRepository<Topic> {
         return topicList;
     }
 
-    public void createQuiz() {
-        for (int i = 0; i < topics.length; i++) {
-            List<Quiz> quizList = new ArrayList<Quiz>();
-            for (int j = 0; j < questions[i].length; j++) {
-                List<String> currentAnswers = new ArrayList<String>();
-                for (int k = 0; k < 4; k++) {
-                    currentAnswers.add(answers[i][k + (4 * j)]);
+    public void createQuiz(File file) {
+        try {
+            JsonReader reader = new JsonReader(new FileReader(file));
+            reader.beginArray();
+            while (reader.hasNext()) {
+                reader.beginObject();
+                reader.skipValue();
+                String topic = reader.nextString();
+                reader.skipValue();
+                String desc = reader.nextString();
+                reader.skipValue();
+                reader.beginArray();
+                //start of questions
+                ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
+                while (reader.peek() != JsonToken.END_ARRAY) {
+                    ArrayList<String> answerList = new ArrayList<String>();
+                    reader.beginObject();
+                    reader.skipValue();
+                    String question = reader.nextString();
+                    reader.skipValue();
+                    int correct = reader.nextInt();
+                    reader.skipValue();
+                    reader.beginArray();
+                    answerList.add(reader.nextString());
+                    answerList.add(reader.nextString());
+                    answerList.add(reader.nextString());
+                    answerList.add(reader.nextString());
+                    reader.endArray();
+                    reader.endObject();
+                    quizzes.add(new Quiz(question, answerList, correct));
                 }
-                quizList.add(new Quiz(questions[i][j], (ArrayList<String>) currentAnswers, correct[i][j]));
+                reader.endArray();
+                reader.endObject();
+                add(new Topic(topic, desc, quizzes));
             }
-            add(new Topic(topics[i], shortDesc[i], longDesc[i], (ArrayList<Quiz>) quizList));
+            reader.endArray();
+            reader.close();
+        } catch (IOException e) {
+            Log.e("TOPICS", e.toString());
         }
     }
 }

@@ -1,0 +1,75 @@
+[
+    { "title":"Math",
+      "desc":"Quiz about math",
+      "questions":[
+        {
+          "text":"1 + 1 = ?",
+          "answer":"1",
+          "answers":[
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "text":"0 / 0 = ?",
+          "answer":"3",
+          "answers":[
+            "1",
+            "2",
+            "what",
+            "the end of the universe"
+          ]
+        }
+      ]
+    },
+    { "title":"Physics", "desc": "Quiz about Physics",
+      "questions":[
+        {
+          "text":"What floats in water?",
+          "answer":"4",
+          "answers":[
+            "bread",
+            "apples",
+            "very small rocks",
+            "a duck"
+          ]
+        },
+        {
+          "text":"What is the average airspeed velocity of an unladen swallow?",
+          "answer":"1",
+          "answers":[
+            "I don't know that",
+            "What do you mean?",
+            "African or European?",
+            "blue"
+          ]
+        }
+      ]
+    },
+    { "title":"Marvel Super Heroes", "desc":"Quiz about super heroes",
+      "questions":[
+         {
+           "text":"Is Batman Marvel?",
+           "answer":"1",
+           "answers":[
+             "yes",
+             "somewhat",
+             "I don't know",
+             "no"
+           ]
+         },
+         {
+          "text":"Is Luke Skywalker Marvel?",
+           "answer":"2",
+           "answers":[
+             "who is Luke",
+             "yes",
+             "I think so",
+             "definitely"
+           ]
+         }
+      ]
+   }
+]
