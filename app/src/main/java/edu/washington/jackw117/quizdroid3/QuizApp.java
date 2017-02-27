@@ -1,5 +1,6 @@
 package edu.washington.jackw117.quizdroid3;
 
+import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
@@ -13,7 +14,7 @@ import java.util.List;
 public class QuizApp extends android.app.Application {
 
     public static final String MESSAGE = "QuizApp";
-    private static Topics repo = new Topics();
+    private static Topics repo;
 
     private static QuizApp instance = null;
 
@@ -21,8 +22,6 @@ public class QuizApp extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         Log.d(MESSAGE, "QuizApp onCreate called");
-
-        getQuiz();
     }
 
     public static QuizApp getInstance() {
@@ -37,8 +36,8 @@ public class QuizApp extends android.app.Application {
     }
 
     public void getQuiz() {
-        File file = new File("/storage/emulated/0/Android/data/edu.washington.jackw117.quizdroid3/files/questions.json");
-        repo.createQuiz(file);
-        List<Topic> listT = repo.query();
+        repo = new Topics();
+        File quizfile = new File("/storage/emulated/0/Download/questions.json");
+        repo.createQuiz(quizfile);
     }
 }

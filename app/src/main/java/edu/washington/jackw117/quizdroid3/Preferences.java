@@ -24,8 +24,10 @@ public class Preferences extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent mainIntent = new Intent(Preferences.this, MainActivity.class);
-                mainIntent.putExtra(URL, url.getText());
-                mainIntent.putExtra(MINUTES, minutes.getText());
+                Bundle b = new Bundle();
+                b.putString(URL, url.getText().toString());
+                b.putInt(MINUTES, Integer.parseInt(minutes.getText().toString()));
+                mainIntent.putExtras(b);
                 startActivity(mainIntent);
             }
         });
