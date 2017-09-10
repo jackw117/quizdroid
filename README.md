@@ -1,5 +1,5 @@
 # quizdroid
-An Android quiz app split into five different parts based on what I was currently learning.
+An Android quiz app split into five different branches based on what I was currently learning.
 
 The first part is a basic app with each possible screen coded separately and all of the information input by hand.
 
